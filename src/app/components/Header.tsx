@@ -12,6 +12,7 @@ const navLinks = [
   { id: 2, name: "About", href: "#about" },
   { id: 3, name: "Contacts", href: "#contacts" },
   { id: 4, name: "Projects", href: "#projects" },
+  {id : 5, name : "Blog" , href : "#blog"}
 ];
 
 const Header = () => {
@@ -38,7 +39,7 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-8 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center space-x-5">
           <Image
             src={logo}
             alt="logo"
@@ -79,7 +80,7 @@ const Header = () => {
           isOpen ? "max-h-96 py-6" : "max-h-0 py-0"
         }`}
       >
-        <nav className="flex flex-col items-center space-y-6 text-lg">
+        <nav className="flex flex-col px-5 space-y-6 text-lg">
           {navLinks.map((item) => (
             <Link
               key={item.id}
