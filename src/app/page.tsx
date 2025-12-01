@@ -1,4 +1,5 @@
 import About from "./components/About";
+import Contacts from "./components/Contact";
 import HeroSection from "./components/HeroSection";
 import Skills from "./components/Skills";
 
@@ -8,10 +9,7 @@ const Home = () => {
       <HeroSection />
       <Skills  />
       <About/>
-      <div id="contacts" className="min-h-screen py-24"> Contacts </div>
-      <div id="projects" className="min-h-screen py-24"> Projects </div>
-      <div id="blog" className="min-h-screen py-24"> Blog </div>
-      
+      <Contacts />
     </main>
   );
 };

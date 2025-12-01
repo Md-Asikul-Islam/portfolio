@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import {
   SiJavascript,
   SiNextdotjs,
@@ -21,7 +19,7 @@ const skills = [
   { name: "TypeScript", icon: SiTypescript, percentage: 83 },
 ];
 
-export default function Skills() {
+const Skills = () => {
   return (
     <section className="w-full py-20" id="skills">
       <div className="max-w-6xl mx-auto px-6">
@@ -47,8 +45,8 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.03 }}
-                className="p-6  dark:bg-gray-900 border border-gray-200 dark:border-gray-700 
-                           rounded-2xl shadow-sm hover:shadow-xl transition-all"
+                viewport={{ once: true }} // ensures SSR-client consistency
+                className="p-6 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-xl transition-all"
               >
                 {/* Skill Title + Icon */}
                 <div className="flex items-center gap-3 mb-4">
@@ -67,7 +65,9 @@ export default function Skills() {
                   />
                 </div>
 
-                <p className="mt-3 text-sm font-semibold">{skill.percentage}%</p>
+                <p className="mt-3 text-sm font-semibold">
+                  {skill.percentage}%
+                </p>
               </motion.div>
             );
           })}
@@ -76,3 +76,4 @@ export default function Skills() {
     </section>
   );
 }
+export default Skills
