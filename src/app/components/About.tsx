@@ -32,7 +32,7 @@ const About = () => {
             <Image
               src={aboutImg}
               alt="Md. Asikul Islam"
-              className="w-full h-full object-cover"
+              className="w-full h-full "
               priority
             />
           </motion.div>

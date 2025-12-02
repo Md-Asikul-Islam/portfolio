@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import heroImage from "@/app/assests/asikul.jpg";
+import heroImage from "@/app/assests/hero.webp";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -10,60 +10,63 @@ const HeroSection = () => {
     <section id="home" className="relative pt-28 pb-20 md:pt-36 md:pb-28">
       <div className="max-w-6xl mx-auto px-5">
 
-        {/* Layout Wrapper */}
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-24">
-
-          {/* Avatar */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="w-40 h-40 md:w-56 md:h-56 relative shrink-0"
-          >
-            <Image
-              src={heroImage}
-              alt="Profile photo of Md. Asikul Islam"
-              priority
-              className="rounded-full border-4 md:border-8 border-indigo-500/40 shadow-xl object-cover"
-            />
-          </motion.div>
+        {/* Hero Layout */}
+        <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-10 md:gap-24">
 
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="flex flex-col w-full"
+            className="flex flex-col w-full md:w-1/2"
           >
             <p className="text-sm md:text-base uppercase tracking-widest text-indigo-400 font-medium">
               Crafting Modern & Responsive Experiences
             </p>
 
-            <h1 className="mt-1 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug">
+            <h1 className="mt-1 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight   bg-linear-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
               Md. Asikul Islam
             </h1>
 
             <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed">
-              Frontend Developer specializing in clean, fast and user-friendly
+              Frontend Developer specializing in clean, fast, and user-friendly
               digital products using React, Next.js, Tailwind CSS & modern UI engineering.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-7 flex gap-4">
+            <div className="mt-7 flex flex-wrap gap-4">
               <Link
                 href="#projects"
-                className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 transition shadow-md rounded-lg text-white font-medium text-sm"
+                className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition shadow-md rounded-lg text-white font-medium text-sm text-center"
               >
                 View Projects
               </Link>
 
               <Link
                 href="#contacts"
-                className="px-5 py-2.5 border border-gray-500 text-gray-200 hover:bg-gray-800 transition rounded-lg font-medium text-sm"
+                className="px-6 py-3 border border-gray-500 text-gray-200 hover:bg-gray-800 transition rounded-lg font-medium text-sm text-center"
               >
                 Contact Me
               </Link>
             </div>
+          </motion.div>
+
+          {/* Avatar / Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full px-2 py-3 md:w-1/2 flex justify-center md:justify-end"
+          >
+            <Image
+              src={heroImage}
+              alt="Profile photo of Md. Asikul Islam"
+              priority
+              className="rounded-2xl shadow-xl object-cover w-full max-w-md"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </motion.div>
 
         </div>
