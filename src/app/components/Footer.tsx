@@ -1,35 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import Social from "./Social";
+
 
 const Footer = () => {
-  const socialLinks = [
-    {
-      icon: FaGithub,
-      href: "https://github.com/Md-Asikul-Islam",
-      label: "GitHub",
-      color: "text-white",
-    },
-    {
-      icon: FaLinkedin,
-      href: "https://www.linkedin.com/in/asikul1998/",
-      label: "LinkedIn",
-      color: "text-[#0A66C2]",
-    },
-    {
-      icon: FaFacebook,
-      href: "https://www.facebook.com/mdasikulislam.asik.927",
-      label: "Facebook",
-      color: "text-[#1877F2]",
-    },
-    {
-      icon: FaInstagram,
-      href: "https://www.instagram.com/mdasikulislam_/?hl=en",
-      label: "Instagram",
-      color: "text-[#E4405F]",
-    },
-  ];
+
 
   return (
     <footer className=" dark:bg-gray-900 py-12">
@@ -46,24 +22,7 @@ const Footer = () => {
             Md. Asikul Islam
           </div>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-6">
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              return (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  className={`text-xl transition ${social.color}`}
-                >
-                  <Icon />
-                </motion.a>
-              );
-            })}
-          </div>
+         <Social />
         </motion.div>
 
         {/* Divider */}

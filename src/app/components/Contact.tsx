@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 import {
   FiMail,
   FiUser,
@@ -8,6 +9,7 @@ import {
   FiPhone,
   FiMapPin,
 } from "react-icons/fi";
+import Social from "./Social";
 
 const Contacts = () => {
   return (
@@ -22,51 +24,64 @@ const Contacts = () => {
         >
           Contact Me
         </motion.h2>
+        <div className="text-center py-3 ">
+          <h1 className="py-2 text-xl sm:text-2xl lg:text-3xl font-semibold bg-linear-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            <Typewriter
+              words={[
+                "Schedule a call with me to see if I can help",
+                "Let’s take your ideas to the next level",
+                "I'm here to help you build something amazing",
+              ]}
+              loop={0}
+              cursor
+              cursorStyle="|"
+              typeSpeed={50}
+              deleteSpeed={35}
+              delaySpeed={1500}
+            />
+          </h1>
+          <p className="text-gray-200 py-2 ">
+            Reach out to me today and let&apos;s discuss how I can help you
+            achieve your goals.
+          </p>
+        </div>
 
         {/* Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20">
           {/* Left: Contact Info */}
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap "
           >
             {/* Info Card */}
-            <div className="p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition">
-              <div className="flex items-center gap-4">
-                <FiMail className="text-3xl text-indigo-600" />
-                <div>
-                  <h4 className="text-lg font-semibold">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    yourmail@gmail.com
-                  </p>
-                </div>
+            <div className=" py-6 rounded-2xl  ">
+              <h4 className="text-lg font-semibold py-3">Email</h4>
+              <div className="flex gap-x-6">
+                <FiMail className="text-2xl text-indigo-600" />
+                <p className="text-gray-200 ">mdasikuli48@gmail.com</p>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition">
-              <div className="flex items-center gap-4">
-                <FiPhone className="text-3xl text-indigo-600" />
-                <div>
-                  <h4 className="text-lg font-semibold">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    +8801XXXXXXXXX
-                  </p>
-                </div>
+            <div className="py-6 rounded-2xl ">
+              <h4 className="text-lg font-semibold py-3">Phone</h4>
+              <div className="flex gap-x-6">
+                <FiPhone className="text-2xl text-indigo-600" />
+                <p className="text-gray-200 ">+8801962-103569</p>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition">
-              <div className="flex items-center gap-4">
-                <FiMapPin className="text-3xl text-indigo-600" />
-                <div>
-                  <h4 className="text-lg font-semibold">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Dhaka, Bangladesh
-                  </p>
-                </div>
+            <div className="py-6 rounded-2xl">
+              <h4 className="text-lg font-semibold py-3">Location</h4>
+              <div className="flex gap-x-6">
+                <FiMapPin className="text-2xl text-indigo-600" />
+                <p className="text-gray-200 ">Dhaka, Bangladesh</p>
               </div>
+            </div>
+            <div className="py-6">
+              <Social />
             </div>
           </motion.div>
 

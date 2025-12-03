@@ -11,7 +11,7 @@ const HeroSection = () => {
     <section id="home" className="relative pt-28 pb-20 md:pt-36 md:pb-32">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Hero Layout */}
-        <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-10 md:gap-24">
+        <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-10 md:gap">
 
           {/* Text Content */}
           <motion.div
@@ -80,7 +80,7 @@ const HeroSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full md:w-[70%] flex justify-center relative"
+            className="w-full md:w-[70%] flex justify-center "
           >
             <motion.div
               whileHover={{ scale: 1.04 }}
