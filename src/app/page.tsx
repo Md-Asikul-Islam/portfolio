@@ -1,5 +1,5 @@
 import About from "./components/About";
-import Blog from "./components/Blog";
+import Blog from "./components/Blogs";
 import Contacts from "./components/Contact";
 import HeroSection from "./components/HeroSection";
 import Project from "./components/Project";
@@ -14,7 +14,6 @@ const Home = () => {
       <Contacts />
       <Project />
       <Blog />
-      
     </main>
   );
 };
