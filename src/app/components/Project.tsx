@@ -31,7 +31,7 @@ export default function Projects() {
           {projects.map((project) => (
             <motion.article
               key={project.title}
-              className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
+              className="bg-yellow-600 dark:bg-dark/50 rounded-lg shadow-md p-6"
               variants={fadeInUp}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 200 }}
