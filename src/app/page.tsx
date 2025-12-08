@@ -1,9 +1,9 @@
 import About from "./components/About";
 import Blog from "./components/Blogs";
-import Contacts from "./components/Contact";
 import HeroSection from "./components/HeroSection";
 import Project from "./components/Project";
 import Skills from "./components/Skills";
+import ContactPage from "./contact/page";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <HeroSection />
       <Skills  />
       <About/>
-      <Contacts />
+      <ContactPage />
       <Project />
       <Blog />
     </main>

@@ -1,48 +1,82 @@
 "use client";
 
 import Link from "next/link";
-import { Blog } from "../types/index";
 import Image, { StaticImageData } from "next/image";
+import { motion, Variants } from "framer-motion";  // ✅ FIXED: Added Variants import
+import { Blog } from "../types";
+
+// Animation variants
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.17, 0.55, 0.55, 1], // Valid easing array (easeOut)
+    },
+  },
+};
 
 interface BlogCardProps {
   blog: Blog;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+  const formattedDate = (() => {
+    const d = new Date(blog.date);
+    if (!isNaN(d.getTime())) {
+      return d.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+    }
+    return "Unknown date";
+  })();
+
   return (
-    <article className="bg-amber-400 rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
-      {/* External link */}
+    <motion.article
+      variants={cardVariants}  // ✅ FIXED: Correct prop name
+      initial="hidden"
+      animate="visible"
+      whileHover={{ scale: 1.015 }}
+      className="bg-white dark:bg-neutral-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-800"
+    >
       <Link
         href={blog.slug}
         target="_blank"
         rel="noopener noreferrer"
+        className="block h-full"
       >
-        {/* Render image only if it exists */}
         {blog.image && (
           <Image
             src={blog.image as string | StaticImageData}
             alt={blog.title}
-            className="rounded-md mb-4 w-full h-48 object-cover"
-            width={400}
-            height={200}
+            width={500}
+            height={300}
+            className="w-full h-52 object-cover rounded-b-none"
             priority
           />
         )}
 
-        <h3 className="px-2 text-xl font-semibold mb-2 hover:text-primary transition-colors">
-          {blog.title}
-        </h3>
+        <div className="p-4">
+          <h3 className="text-xl font-semibold mb-2 text-neutral-900 dark:text-white hover:text-primary transition-colors">
+            {blog.title}
+          </h3>
 
-        <p className="px-2 text-gray-600 dark:text-gray-300 mb-4">
-          {blog.excerpt}
-        </p>
+          <p className="text-neutral-600 dark:text-neutral-300 mb-4 line-clamp-3">
+            {blog.excerpt}
+          </p>
 
-        <div className="p-2 flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-4">
-          <span>{new Date(blog.date).toLocaleDateString()}</span>
-          <span>{blog.readTime}</span>
+          <div className="flex items-center text-sm text-neutral-500 dark:text-neutral-400 gap-4">
+            <span>{formattedDate}</span>
+            <span>•</span>
+            <span>{blog.readTime}</span>
+          </div>
         </div>
       </Link>
-    </article>
+    </motion.article>
   );
 };
 
